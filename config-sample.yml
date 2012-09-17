@@ -1,0 +1,7 @@
+ssh:
+  host: foo.example.com
+  user: bar
+  path: /path/to/oreore
+
+url:
+  base: 'http://foo.example.com/path/to/oreore'

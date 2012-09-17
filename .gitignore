@@ -1,0 +1,7 @@
+/.bundle/
+/images/
+/radio/
+/radio_new/
+/tmp/
+/config.yml
+vendor/bundle/
