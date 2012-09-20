@@ -15,4 +15,5 @@ How to use
 7. `` % bundle config build.id3lib-ruby --with-opt-dir=`brew --prefix` ``
 8. `% bundle install --path vendor/bundle`
 9. Put "\*.mp3" into "radio\_new/" and "\*.jpg" into "images/" as cover image.
-10. `% bundle exec oreore_podcast.rb`
+10. Copy "config-sample.yml" to "config.yml" and update with your environment.
+11. `% bundle exec ruby oreore_podcast.rb`
