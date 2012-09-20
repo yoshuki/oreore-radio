@@ -1,3 +1,8 @@
+Copyright
+==========
+
+Copyright (c) 2012 MIKAMI Yoshiyuki. See LICENSE for details.
+
 How to use
 ==========
 
