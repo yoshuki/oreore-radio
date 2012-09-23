@@ -41,11 +41,6 @@ def embed_cover_image(mp3_file)
   end
 end
 
-def encode_to_utf_8(source)
-  return source if source.encoding == Encoding::UTF_8
-  source.encode(Encoding::UTF_8, Encoding::UTF_16BE, invalid: :replace)
-end
-
 def create_podcast_rss
   RSS::Maker.make('2.0') {|maker|
     maker.channel.language = 'ja'
