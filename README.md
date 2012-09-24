@@ -12,6 +12,7 @@ How to use
 4. `% cd oreore-radio`
 5. `` % bundle config build.taglib-ruby --with-opt-dir=`brew --prefix` ``
 6. `% bundle install --path vendor/bundle`
-7. Put "\*.mp3" into "radio\_new/" and "\*.jpg" into "images/" as front cover.
+7. Put "\*\_YYYYMMDD.mp3" into "radio\_new/" and "\*.jpg" into "images/" as front cover.
 8. Copy "config-sample.yml" to "config.yml" and update with your environment.
-9. `% bundle exec ruby oreore_podcast.rb`
+9. `% bundle exec rake oreore:prepare`
+10. `% bundle exec ruby oreore_podcast.rb`

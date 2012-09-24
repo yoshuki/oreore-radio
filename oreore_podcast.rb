@@ -51,7 +51,7 @@ def create_podcast_rss
     maker.items.do_sort = true
 
     maker.image.title = 'TBS RADIO 954kHz'
-    maker.image.url = "#{URL_BASE}/logo_tbsradio.gif"
+    maker.image.url = "#{URL_BASE}/logo_tbsradio.jpg"
 
     Dir::glob("#{DIR_RADIO}/*.mp3") do |mp3_file|
       item = maker.items.new_item
