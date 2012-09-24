@@ -4,8 +4,8 @@ require 'fileutils'
 require 'rss'
 require 'uri'
 
-require 'id3lib'
 require 'net/scp'
+require 'taglib'
 
 DIR_BASE      = File.expand_path(File.dirname(__FILE__))
 DIR_IMAGES    = "#{DIR_BASE}/images"
@@ -25,23 +25,20 @@ def embed_cover_image(mp3_file)
   image_file = "#{DIR_IMAGES}/#{File.basename(mp3_file, '.mp3').split('_').first}.jpg"
   image_file = "#{DIR_IMAGES}/logo_tbsradio.jpg" unless File.exist?(image_file)
 
-  tag = ID3Lib::Tag.new(mp3_file)
-  unless tag.any? {|t| t[:id] == :APIC }
-    tag << {
-        :id          => :APIC,
-        :textenc     => 0,
-        :mimetype    => 'image/jpeg',
-        :picturetype => 3,
-        :description => 'TBS RADIO 954kHz',
-        :data        => File.read(image_file)
-      }
-    tag.update!
-  end
-end
+  TagLib::MPEG::File.open(mp3_file) do |file|
+    tag = file.id3v2_tag
 
-def encode_to_utf_8(source)
-  return source if source.encoding == Encoding::UTF_8
-  source.encode(Encoding::UTF_8, Encoding::UTF_16BE, invalid: :replace)
+    unless tag.frame_list.any? {|f| f.is_a?(TagLib::ID3v2::AttachedPictureFrame) }
+      apic = TagLib::ID3v2::AttachedPictureFrame.new
+      apic.mime_type = 'image/jpeg'
+      apic.description = 'Front Cover'
+      apic.type = TagLib::ID3v2::AttachedPictureFrame::FrontCover
+      apic.picture = File.read(image_file)
+      tag.add_frame(apic)
+
+      file.save
+    end
+  end
 end
 
 def create_podcast_rss
@@ -64,14 +61,13 @@ def create_podcast_rss
       item.enclosure.length = File.size(mp3_file)
       item.enclosure.type = 'audio/mpeg'
 
-      tag = ID3Lib::Tag.new(mp3_file)
+      TagLib::MPEG::File.open(mp3_file) do |file|
+        tag = file.id3v2_tag
 
-      item.title = encode_to_utf_8(tag.title)
-      item.author = encode_to_utf_8(tag.artist)
-
-      album = encode_to_utf_8(tag.album)
-      genre = encode_to_utf_8(tag.genre)
-      item.itunes_subtitle = "#{genre} #{album}"
+        item.title = tag.title
+        item.author = tag.artist
+        item.itunes_subtitle = "#{tag.genre} #{tag.album}"
+      end
     end
   }.to_s
 end
