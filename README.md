@@ -15,4 +15,5 @@ How to use
 7. Put "\*\_YYYYMMDD.mp3" into "radio\_new/" and "\*.jpg" into "images/" as front cover.
 8. Copy "config-sample.yml" to "config.yml" and update with your environment.
 9. `% bundle exec rake oreore:prepare`
-10. `% bundle exec ruby oreore_podcast.rb`
+10. `% bundle exec rake oreore:podcast`
+11. Podcast will be created as "rss.xml", under "url.base" specified in "config.yml".
