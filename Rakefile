@@ -21,6 +21,10 @@ SSH_PATH = CONFIG['ssh']['path']
 
 URL_BASE = CONFIG['url']['base']
 
+def files_sorted_by_mtime(pattern)
+  Dir.glob(pattern).map{|f| [File.mtime(f), f] }.sort{|a, b| a.first <=> b.first }.map(&:last)
+end
+
 def embed_cover_image(mp3_file)
   image_file = "#{DIR_IMAGES}/#{File.basename(mp3_file, '.mp3').split('_').first}.jpg"
   image_file = "#{DIR_IMAGES}/logo_tbsradio.jpg" unless File.exist?(image_file)
@@ -53,7 +57,7 @@ def create_podcast_rss
     maker.image.title = 'TBS RADIO 954kHz'
     maker.image.url = "#{URL_BASE}/logo_tbsradio.jpg"
 
-    Dir::glob("#{DIR_RADIO}/*.mp3") do |mp3_file|
+    files_sorted_by_mtime("#{DIR_RADIO}/*.mp3").each do |mp3_file|
       item = maker.items.new_item
 
       item.date = File.mtime(mp3_file)
@@ -84,7 +88,7 @@ namespace :oreore do
   desc 'Update podcast.'
   task :podcast do
     # Embed cover image and upload mp3
-    Dir::glob("#{DIR_RADIO_NEW}/*.mp3") do |mp3_file|
+    files_sorted_by_mtime("#{DIR_RADIO_NEW}/*.mp3").each do |mp3_file|
       embed_cover_image(mp3_file)
       Net::SCP.upload!(SSH_HOST, SSH_USER, mp3_file, "#{SSH_PATH}/mp3/")
       FileUtils.move(mp3_file, DIR_RADIO)
@@ -92,7 +96,7 @@ namespace :oreore do
 
     # Clean expired mp3
     Net::SSH.start(SSH_HOST, SSH_USER) do |ssh|
-      Dir::glob("#{DIR_RADIO}/*.mp3") do |mp3_file|
+      files_sorted_by_mtime("#{DIR_RADIO}/*.mp3").each do |mp3_file|
         limit = (Time.now - (86400*14)).strftime('%Y%m%d')
         if File.basename(mp3_file, '.mp3').split('_').last < limit
           File.delete(mp3_file)
