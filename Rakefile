@@ -3,6 +3,7 @@
 require 'fileutils'
 require 'rss'
 require 'uri'
+require 'yaml'
 
 require 'net/scp'
 require 'taglib'
