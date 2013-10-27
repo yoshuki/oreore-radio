@@ -69,9 +69,9 @@ def create_podcast_rss
       TagLib::MPEG::File.open(mp3_file) do |file|
         tag = file.id3v2_tag
 
-        item.title = tag.title
-        item.author = tag.artist
-        item.itunes_subtitle = "#{tag.genre} #{tag.album}"
+        item.title = tag.title || File.basename(mp3_file, '.mp3')
+        item.author = tag.artist || File.basename(mp3_file, '.mp3')
+        item.itunes_subtitle = "#{tag.genre} #{tag.album}".strip
       end
     end
   }.to_s
