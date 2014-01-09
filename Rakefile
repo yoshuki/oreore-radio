@@ -48,10 +48,13 @@ end
 
 def create_podcast_rss
   RSS::Maker.make('2.0') {|maker|
-    maker.channel.language = 'ja'
-    maker.channel.link = "#{URL_BASE}/"
     maker.channel.title = 'オレオレTBSラジオ'
+    maker.channel.link = "#{URL_BASE}/"
+    maker.channel.language = 'ja'
     maker.channel.description = 'オレオレTBSラジオポッドキャストです。'
+    maker.channel.itunes_subtitle = 'TBS RADIO 954kHz ～聞けば、見えてくる～'
+    maker.channel.itunes_author = 'オレオレ'
+    maker.channel.itunes_summary = 'オレオレTBSラジオポッドキャストです。'
 
     maker.items.do_sort = true
 
@@ -71,6 +74,7 @@ def create_podcast_rss
 
         item.title = tag.title || File.basename(mp3_file, '.mp3')
         item.author = tag.artist || File.basename(mp3_file, '.mp3')
+        item.description = tag.album
         item.itunes_subtitle = "#{tag.genre} #{tag.album}".strip
       end
     end
