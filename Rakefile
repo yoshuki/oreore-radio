@@ -14,7 +14,7 @@ DIR_RADIO_NEW = "#{DIR_BASE}/radio_new"
 DIR_RADIO     = "#{DIR_BASE}/radio"
 DIR_TMP       = "#{DIR_BASE}/tmp"
 
-CONFIG = YAML.load_file("#{DIR_BASE}/config.yml")
+CONFIG = YAML.load_file("#{DIR_BASE}/config/config.yml")
 
 SSH_HOST = CONFIG['ssh']['host']
 SSH_USER = CONFIG['ssh']['user']
