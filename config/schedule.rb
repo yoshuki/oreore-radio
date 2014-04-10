@@ -26,7 +26,7 @@ set :output, nil
 job_type :rake, "cd :path && :bundle_command rake :task --silent :output"
 
 # junk
-every '10 3 * * 0-6' do
+every '10 3 * * 0,2-6' do
   rake 'oreore:podcast'
 end
 
