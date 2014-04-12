@@ -14,7 +14,7 @@ GEM
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.8.0)
-    rake (0.9.2.2)
+    rake (10.2.2)
     taglib-ruby (0.6.0)
     thread_safe (0.3.3)
     tzinfo (1.1.0)
@@ -28,6 +28,6 @@ PLATFORMS
 
 DEPENDENCIES
   net-scp (~> 1.1.2)
-  rake
+  rake (~> 10.2.2)
   taglib-ruby (~> 0.6.0)
-  whenever
+  whenever (~> 0.9.2)

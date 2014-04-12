@@ -19,28 +19,26 @@
 
 # Learn more: http://github.com/javan/whenever
 
-env :PATH, ENV['PATH']
-
 set :output, nil
 
-job_type :rake, "cd :path && :bundle_command rake :task --silent :output"
+job_type :rbenv_rake, %q!PATH="$HOME/.rbenv/bin:$PATH"; eval "$(rbenv init -)"; cd :path && :bundle_command rake :task --silent :output!
 
 # junk
 every '10 3 * * 0,2-6' do
-  rake 'oreore:podcast'
+  rbenv_rake 'oreore:podcast'
 end
 
 # paka
 every :saturday, at: '17:00' do
-  rake 'oreore:podcast'
+  rbenv_rake 'oreore:podcast'
 end
 
 # tama954
 every '40 15 * * 1-5' do
-  rake 'oreore:podcast'
+  rbenv_rake 'oreore:podcast'
 end
 
 # nichiten
 every :sunday, at: '12:05' do
-  rake 'oreore:podcast'
+  rbenv_rake 'oreore:podcast'
 end
