@@ -1,7 +1,7 @@
 Copyright
 ==========
 
-Copyright (c) 2012-2013 MIKAMI Yoshiyuki. See LICENSE for details.
+Copyright (c) 2012-2014 MIKAMI Yoshiyuki. See LICENSE for details.
 
 How to use
 ==========
