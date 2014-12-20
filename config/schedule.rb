@@ -22,23 +22,28 @@
 set :output, nil
 
 job_type :rbenv_rake, %q!PATH="$HOME/.rbenv/bin:$PATH"; eval "$(rbenv init -)"; cd :path && :bundle_command rake :task --silent :output!
+job_type :be_rake, 'cd :path && :bundle_command rake :task --silent :output'
+
+def rake_method
+  File.exist?("#{ENV['HOME']}/.rbenv/bin") ? :rbenv_rake : :be_rake
+end
 
 # junk
 every '10 3 * * 0,2-6' do
-  rbenv_rake 'oreore:podcast'
+  send rake_method, 'oreore:podcast'
 end
 
 # paka
 every :saturday, at: '17:00' do
-  rbenv_rake 'oreore:podcast'
+  send rake_method, 'oreore:podcast'
 end
 
 # tama954
 every '40 15 * * 1-5' do
-  rbenv_rake 'oreore:podcast'
+  send rake_method, 'oreore:podcast'
 end
 
 # nichiten
 every :sunday, at: '12:05' do
-  rbenv_rake 'oreore:podcast'
+  send rake_method, 'oreore:podcast'
 end
