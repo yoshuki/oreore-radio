@@ -31,21 +31,33 @@ def rake_method
 end
 
 # junk
-every '10 3 * * 0,2-6' do
+every '10 4 * * 0,2-6' do
+  send rake_method, 'oreore:import_from_ripdiko'
+end
+every '20 4 * * 0,2-6' do
   send rake_method, 'oreore:podcast'
 end
 
 # paka
 every :saturday, at: '17:00' do
+  send rake_method, 'oreore:import_from_ripdiko'
+end
+every :saturday, at: '17:10' do
   send rake_method, 'oreore:podcast'
 end
 
 # tama954
 every '40 15 * * 1-5' do
+  send rake_method, 'oreore:import_from_ripdiko'
+end
+every '50 16 * * 1-5' do
   send rake_method, 'oreore:podcast'
 end
 
 # nichiten
 every :sunday, at: '12:05' do
+  send rake_method, 'oreore:import_from_ripdiko'
+end
+every :sunday, at: '12:15' do
   send rake_method, 'oreore:podcast'
 end
