@@ -21,6 +21,8 @@
 
 set :output, nil
 
+env :RIPDIKO_OUTDIR, ENV['RIPDIKO_OUTDIR'] if ENV['RIPDIKO_OUTDIR']
+
 job_type :rbenv_rake, %q!PATH="$HOME/.rbenv/bin:$PATH"; eval "$(rbenv init -)"; cd :path && :bundle_command rake :task --silent :output!
 job_type :be_rake, 'cd :path && :bundle_command rake :task --silent :output'
 

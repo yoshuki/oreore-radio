@@ -115,4 +115,36 @@ namespace :oreore do
     File.open(rss_file, 'w') {|f| f.puts create_podcast_rss }
     Net::SCP.upload!(SSH_HOST, SSH_USER, rss_file, "#{SSH_PATH}/")
   end
+
+  desc 'Import from ripdiko.'
+  task :import_from_ripdiko do
+    indir = Pathname.new(ENV['RIPDIKO_OUTDIR'] || "#{ENV['HOME']}/Music/Radiko")
+    outdir = Pathname.new(DIR_RADIO_NEW)
+
+    # Basename should be like "20141219010000-TBS.mp3"
+    Dir.glob(indir.join '*-*.mp3').each do |mp3_file|
+      mp3_file = Pathname.new(mp3_file)
+
+      TagLib::MPEG::File.open(mp3_file.to_path) do |file|
+        name = case file.id3v2_tag.title
+               when /たまむすび/; 'tama954'
+               when /深夜の馬鹿力/; 'ijuin'
+               when /カーボーイ/; 'bakusho'
+               when /不毛な議論/; 'fumou'
+               when /メガネびいき/; 'megane'
+               when /粋な夜電波/; 'denpa'
+               when /バナナムーンGOLD/; 'banana'
+               when /コント太郎/; 'elekata'
+               when /デブッタンテ/; 'debu'
+               when /パカパカ行進曲!!/; 'pakapaka'
+               when /日曜天国/; 'nichiten'
+               when /日曜サンデー/; 'nichiyou'
+               else 'unknown'
+               end
+        started_at = mp3_file.basename('.mp3').to_s.split('-').first
+
+        mp3_file.rename outdir.join("#{name}_#{started_at}.mp3")
+      end
+    end
+  end
 end
