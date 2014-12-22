@@ -62,18 +62,24 @@ def create_podcast_rss
     maker.image.url = "#{URL_BASE}/logo_tbsradio.jpg"
 
     files_sorted_by_mtime("#{DIR_RADIO}/*.mp3").each do |mp3_file|
+      mp3_file = Pathname.new(mp3_file)
+
       item = maker.items.new_item
 
-      item.date = File.mtime(mp3_file)
-      item.enclosure.url = "#{URL_BASE}/mp3/#{URI.escape(File.basename(mp3_file))}"
-      item.enclosure.length = File.size(mp3_file)
+      item.date = if (matched = mp3_file.basename('.mp3').to_path.match(/(?<=_)\d{14}\z/))
+                    DateTime.strptime("#{matched}+0900", '%Y%m%d%H%M%S%Z').to_time
+                  else
+                    mp3_file.mtime
+                  end
+      item.enclosure.url = "#{URL_BASE}/mp3/#{URI.escape(mp3_file.basename.to_path)}"
+      item.enclosure.length = mp3_file.size
       item.enclosure.type = 'audio/mpeg'
 
-      TagLib::MPEG::File.open(mp3_file) do |file|
+      TagLib::MPEG::File.open(mp3_file.to_path) do |file|
         tag = file.id3v2_tag
 
-        item.title = tag.title || File.basename(mp3_file, '.mp3')
-        item.author = tag.artist || File.basename(mp3_file, '.mp3')
+        item.title = tag.title || mp3_file.basename('.mp3')
+        item.author = tag.artist || mp3_file.basename('.mp3')
         item.description = tag.album
         item.itunes_subtitle = "#{tag.genre} #{tag.album}".strip
       end
