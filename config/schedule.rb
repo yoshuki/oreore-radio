@@ -50,7 +50,7 @@ end
 every '40 15 * * 1-5' do
   send rake_method, 'oreore:import_from_ripdiko'
 end
-every '50 16 * * 1-5' do
+every '50 15 * * 1-5' do
   send rake_method, 'oreore:podcast'
 end
 
