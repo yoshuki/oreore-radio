@@ -70,10 +70,26 @@ every :saturday, at: '01:20' do
   send rake_method, 'oreore:podcast'
 end
 
-# debu
+# warai954
+every :sunday, at: '00:40' do
+  send rake_method, 'oreore:import_from_ripdiko'
+end
+every :sunday, at: '00:50' do
+  send rake_method, 'oreore:podcast'
+end
+
+# tokyopod
 every :sunday, at: '04:10' do
   send rake_method, 'oreore:import_from_ripdiko'
 end
 every :sunday, at: '04:20' do
+  send rake_method, 'oreore:podcast'
+end
+
+# debu
+every :sunday, at: '05:10' do
+  send rake_method, 'oreore:import_from_ripdiko'
+end
+every :sunday, at: '05:20' do
   send rake_method, 'oreore:podcast'
 end
