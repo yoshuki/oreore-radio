@@ -66,16 +66,16 @@ def create_podcast_rss
 
       item = maker.items.new_item
 
-      item.date = if (matched = mp3_file.basename('.mp3').to_path.match(/(?<=_)\d{14}\z/))
+      item.date = if (matched = mp3_file.basename('.mp3').to_s.match(/(?<=_)\d{14}\z/))
                     DateTime.strptime("#{matched}+0900", '%Y%m%d%H%M%S%Z').to_time
                   else
                     mp3_file.mtime
                   end
-      item.enclosure.url = "#{URL_BASE}/mp3/#{URI.escape(mp3_file.basename.to_path)}"
+      item.enclosure.url = "#{URL_BASE}/mp3/#{URI.escape(mp3_file.basename.to_s)}"
       item.enclosure.length = mp3_file.size
       item.enclosure.type = 'audio/mpeg'
 
-      TagLib::MPEG::File.open(mp3_file.to_path) do |file|
+      TagLib::MPEG::File.open(mp3_file.to_s) do |file|
         tag = file.id3v2_tag
 
         item.title = tag.title || mp3_file.basename('.mp3')
@@ -131,7 +131,7 @@ namespace :oreore do
     Dir.glob(indir.join '*-*.mp3').each do |mp3_file|
       mp3_file = Pathname.new(mp3_file)
 
-      TagLib::MPEG::File.open(mp3_file.to_path) do |file|
+      TagLib::MPEG::File.open(mp3_file.to_s) do |file|
         name = case file.id3v2_tag.title
                when /たまむすび/; 'tama954'
                when /深夜の馬鹿力/; 'ijuin'
