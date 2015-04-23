@@ -153,4 +153,25 @@ namespace :oreore do
       end
     end
   end
+
+  desc 'Import from ripdiru.'
+  task :import_from_ripdiru do
+    indir = Pathname.new(ENV['RIPDIRU_OUTDIR'] || "#{ENV['HOME']}/Music/Radiru")
+    outdir = Pathname.new(DIR_RADIO_NEW)
+
+    # Basename should be like "20150423064402-NHK2.mp3"
+    Dir.glob(indir.join '*-*.mp3').each do |mp3_file|
+      mp3_file = Pathname.new(mp3_file)
+
+      TagLib::MPEG::File.open(mp3_file.to_s) do |file|
+        name = case file.id3v2_tag.title
+               when /ラジオ英会話/; 'kaiwa'
+               else 'unknown'
+               end
+        started_at = mp3_file.basename('.mp3').to_s.split('-').first
+
+        mp3_file.rename outdir.join("#{name}_#{started_at}.mp3")
+      end
+    end
+  end
 end
