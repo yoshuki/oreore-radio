@@ -145,6 +145,7 @@ namespace :oreore do
                when /パカパカ行進曲!!/; 'pakapaka'
                when /日曜天国/; 'nichiten'
                when /日曜サンデー/; 'nichiyou'
+               when /東京ポッド許可局/; 'tokyopod'
                else 'unknown'
                end
         started_at = mp3_file.basename('.mp3').to_s.split('-').first
