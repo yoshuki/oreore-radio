@@ -37,15 +37,15 @@ every('10 3 * * 0,2-6') { send rake_method, 'oreore:podcast' }
 
 # deso
 every(:saturday, at: '21:05') { send rake_method, 'oreore:import_from_ripdiko' }
-every(:saturday, at: '21:15') { send rake_method, 'oreore:podcast' }
+every(:saturday, at: '21:10') { send rake_method, 'oreore:podcast' }
 
 # ij
 every('05 11 * * 1-4') { send rake_method, 'oreore:import_from_ripdiko' }
-every('15 11 * * 1-4') { send rake_method, 'oreore:podcast' }
+every('10 11 * * 1-4') { send rake_method, 'oreore:podcast' }
 
 # so
 every('05 13 * * 1-5') { send rake_method, 'oreore:import_from_ripdiko' }
-every('15 13 * * 1-5') { send rake_method, 'oreore:podcast' }
+every('10 13 * * 1-5') { send rake_method, 'oreore:podcast' }
 
 # tama954
 every('35 15 * * 1-5') { send rake_method, 'oreore:import_from_ripdiko' }
