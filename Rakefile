@@ -146,6 +146,8 @@ namespace :oreore do
                when /日曜天国/; 'nichiten'
                when /日曜サンデー/; 'nichiyou'
                when /東京ポッド許可局/; 'tokyopod'
+               when /らじおと/; 'ij'
+               when /生活は踊る/; 'so'
                else 'unknown'
                end
         started_at = mp3_file.basename('.mp3').to_s.split('-').first
