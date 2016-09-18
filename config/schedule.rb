@@ -32,8 +32,12 @@ def rake_method
 end
 
 # junk
-every('05 3 * * 0,2-6') { send rake_method, 'oreore:import_from_ripdiko' }
-every('10 3 * * 0,2-6') { send rake_method, 'oreore:podcast' }
+every('05 3 * * 2-7') { send rake_method, 'oreore:import_from_ripdiko' }
+every('10 3 * * 2-7') { send rake_method, 'oreore:podcast' }
+
+# midnight
+every('05 1 * * 2-6') { send rake_method, 'oreore:import_from_ripdiko' }
+every('10 1 * * 2-6') { send rake_method, 'oreore:podcast' }
 
 # deso
 every(:saturday, at: '21:05') { send rake_method, 'oreore:import_from_ripdiko' }
@@ -54,10 +58,6 @@ every('40 15 * * 1-5') { send rake_method, 'oreore:podcast' }
 # nichiten
 every(:sunday, at: '12:00') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:sunday, at: '12:05') { send rake_method, 'oreore:podcast' }
-
-# denpa
-every(:saturday, at: '01:05') { send rake_method, 'oreore:import_from_ripdiko' }
-every(:saturday, at: '01:10') { send rake_method, 'oreore:podcast' }
 
 # tokyopod
 every(:sunday, at: '04:05') { send rake_method, 'oreore:import_from_ripdiko' }
