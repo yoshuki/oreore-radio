@@ -148,6 +148,10 @@ namespace :oreore do
                when /東京ポッド許可局/; 'tokyopod'
                when /らじおと/; 'ij'
                when /生活は踊る/; 'so'
+               when /ターン！/; 'ht'
+               when /星のギガボディ/; 'giga'
+               when /D\.C\.GARAGE/; 'dcg'
+               when /デートの時間でそ？！/; 'deso'
                else 'unknown'
                end
         started_at = mp3_file.basename('.mp3').to_s.split('-').first
