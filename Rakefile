@@ -80,7 +80,7 @@ def create_podcast_rss
 
         item.title = tag.title || mp3_file.basename('.mp3')
         item.author = tag.artist || mp3_file.basename('.mp3')
-        item.description = tag.album
+        item.description = "タイムフリー http://radiko.jp/share/?sid=TBS&t=#{item.date.strftime('%Y%m%d%H%M%S')}"
         item.itunes_subtitle = "#{tag.genre} #{tag.album}".strip
       end
     end
