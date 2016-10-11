@@ -4,8 +4,8 @@ GEM
     chronic (0.10.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (3.1.1)
-    rake (11.2.2)
+    net-ssh (3.2.0)
+    rake (11.3.0)
     taglib-ruby (0.7.1)
     whenever (0.9.7)
       chronic (>= 0.6.3)
@@ -14,10 +14,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  net-scp (~> 1.2, >= 1.2.1)
-  rake (~> 11.2, >= 11.2.2)
-  taglib-ruby (~> 0.7.1)
+  net-scp
+  rake
+  taglib-ruby
   whenever
 
 BUNDLED WITH
-   1.12.5
+   1.13.1
