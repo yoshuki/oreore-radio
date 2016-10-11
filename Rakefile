@@ -1,4 +1,3 @@
-require 'erb'
 require 'fileutils'
 require 'rss'
 require 'uri'
@@ -79,7 +78,7 @@ def create_podcast_rss
 
         item.title = tag.title || mp3_file.basename('.mp3')
         item.author = tag.artist || mp3_file.basename('.mp3')
-        item.description = ERB::Util.h(%!<a href="http://radiko.jp/share/?sid=TBS&t=#{item.date.strftime('%Y%m%d%H%M%S')}">タイムフリー</a>!)
+        item.description = %!<p>#{tag.album} <a href="http://radiko.jp/share/?sid=TBS&t=#{item.date.strftime('%Y%m%d%H%M%S')}">タイムフリー</a></p>!
         item.itunes_subtitle = "#{tag.genre} #{tag.album}".strip
       end
     end
