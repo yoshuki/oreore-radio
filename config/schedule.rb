@@ -72,5 +72,5 @@ every(:sunday, at: '21:00') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:sunday, at: '21:05') { send rake_method, 'oreore:podcast' }
 
 # denpa
-every(:saturday, at: '05:05') { send rake_method, 'oreore:import_from_ripdiko' }
-every(:saturday, at: '05:10') { send rake_method, 'oreore:podcast' }
+every(:sunday, at: '05:05') { send rake_method, 'oreore:import_from_ripdiko' }
+every(:sunday, at: '05:10') { send rake_method, 'oreore:podcast' }
