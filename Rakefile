@@ -150,6 +150,7 @@ namespace :oreore do
                when /星のギガボディ/; 'giga'
                when /D\.C\.GARAGE/; 'dcg'
                when /デートの時間でそ？！/; 'deso'
+               when /好奇心家族/; 'kazoku'
                else 'unknown'
                end
         started_at = mp3_file.basename('.mp3').to_s.split('-').first
