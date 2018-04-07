@@ -139,8 +139,6 @@ namespace :oreore do
                when /粋な夜電波/; 'denpa'
                when /バナナムーンGOLD/; 'banana'
                when /コント太郎/; 'elekata'
-               when /デブッタンテ/; 'debu'
-               when /パカパカ行進曲!!/; 'pakapaka'
                when /日曜天国/; 'nichiten'
                when /日曜サンデー/; 'nichiyou'
                when /東京ポッド許可局/; 'tokyopod'
@@ -150,7 +148,9 @@ namespace :oreore do
                when /星のギガボディ/; 'giga'
                when /D\.C\.GARAGE/; 'dcg'
                when /デートの時間でそ？！/; 'deso'
-               when /好奇心家族/; 'kazoku'
+               when /アニニャン！/; 'ia'
+               when /ヘイ！タクシー！/; 'kamataku'
+               when /好奇心プラス/; 'kaeru'
                else 'unknown'
                end
         started_at = mp3_file.basename('.mp3').to_s.split('-').first

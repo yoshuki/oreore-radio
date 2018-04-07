@@ -75,14 +75,14 @@ every(:sunday, at: '18:10') { send rake_method, 'oreore:podcast' }
 every(:sunday, at: '21:00') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:sunday, at: '21:05') { send rake_method, 'oreore:podcast' }
 
-# tmp1
+# ia
 every(:tuesday, at: '21:35') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:tuesday, at: '21:40') { send rake_method, 'oreore:podcast' }
 
-# tmp2
+# kamataku
 every(:wednesday, at: '21:35') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:wednesday, at: '21:40') { send rake_method, 'oreore:podcast' }
 
-# tmp3
+# kaeru
 every(:friday, at: '22:05') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:friday, at: '22:10') { send rake_method, 'oreore:podcast' }
