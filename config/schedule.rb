@@ -32,8 +32,8 @@ def rake_method
 end
 
 # ij
-#every('05 11 * * 1-4') { send rake_method, 'oreore:import_from_ripdiko' }
-#every('10 11 * * 1-4') { send rake_method, 'oreore:podcast' }
+every('05 11 * * 1-4') { send rake_method, 'oreore:import_from_ripdiko' }
+every('10 11 * * 1-4') { send rake_method, 'oreore:podcast' }
 
 # so
 #every('05 13 * * 1-4') { send rake_method, 'oreore:import_from_ripdiko' }
