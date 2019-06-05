@@ -19,16 +19,20 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :output, '$HOME/oreore-radio.log'
+DIR_RBENV_BIN = "#{ENV['HOME']}/.rbenv/bin"
+
+set :output, "#{ENV['HOME']}/oreore-radio.log"
+
+env :PATH, ENV['PATH']
 
 env :RIPDIKO_OUTDIR, ENV['RIPDIKO_OUTDIR'] if ENV['RIPDIKO_OUTDIR']
 env :RIPDIRU_OUTDIR, ENV['RIPDIRU_OUTDIR'] if ENV['RIPDIRU_OUTDIR']
 
-job_type :rbenv_rake, %q!PATH="$HOME/.rbenv/bin:$PATH"; eval "$(rbenv init -)"; cd :path && :bundle_command rake :task --silent :output!
+job_type :rbenv_rake, %Q!PATH="#{DIR_RBENV_BIN}:$PATH"; eval "$(rbenv init -)"; cd :path && :bundle_command rake :task --silent :output!
 job_type :be_rake, 'cd :path && :bundle_command rake :task --silent :output'
 
 def rake_method
-  File.exist?("#{ENV['HOME']}/.rbenv/bin") ? :rbenv_rake : :be_rake
+  File.exist?(DIR_RBENV_BIN) ? :rbenv_rake : :be_rake
 end
 
 # ij
