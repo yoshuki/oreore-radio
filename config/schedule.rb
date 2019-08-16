@@ -60,8 +60,8 @@ every(:monday, at: '22:05') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:monday, at: '22:10') { send rake_method, 'oreore:podcast' }
 
 # ia
-every(:tuesday, at: '21:35') { send rake_method, 'oreore:import_from_ripdiko' }
-every(:tuesday, at: '21:40') { send rake_method, 'oreore:podcast' }
+#every(:tuesday, at: '21:35') { send rake_method, 'oreore:import_from_ripdiko' }
+#every(:tuesday, at: '21:40') { send rake_method, 'oreore:podcast' }
 
 # suppin
 every(:wednesday, at: '22:05') { send rake_method, 'oreore:import_from_ripdiko' }
