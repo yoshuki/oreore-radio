@@ -4,4 +4,4 @@ ssh:
   path: /path/to/oreore
 
 url:
-  base: 'http://foo.example.com/path/to/oreore' # should point to "ssh.path"
+  base: 'https://foo.example.com/path/to/oreore' # should point to "ssh.path"
