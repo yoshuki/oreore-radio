@@ -5,7 +5,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.2.0)
-    rake (11.3.0)
+    rake (12.3.3)
     taglib-ruby (0.7.1)
     whenever (0.9.7)
       chronic (>= 0.6.3)
