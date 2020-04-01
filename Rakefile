@@ -151,9 +151,10 @@ namespace :oreore do
                when /アニニャン！/; 'ia'
                when /ヘイ！タクシー！/; 'kamataku'
                when /好奇心プラス/; 'kaeru'
-               when /問わず語りの松之丞/; 'edo'
+               when /問わず語り/; 'edo'
                when /すっぴんしゃん/; 'suppin'
                when /Laughter Night/; 'warai954'
+               when /踊り場/; 'odoriba'
                else 'unknown'
                end
         started_at = mp3_file.basename('.mp3').to_s.split('-').first
