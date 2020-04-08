@@ -1,6 +1,6 @@
+require 'erb'
 require 'fileutils'
 require 'rss'
-require 'uri'
 require 'yaml'
 
 require 'net/scp'
@@ -69,7 +69,7 @@ def create_podcast_rss
                   else
                     mp3_file.mtime
                   end
-      item.enclosure.url = "#{URL_BASE}/mp3/#{URI.escape(mp3_file.basename.to_s)}"
+      item.enclosure.url = "#{URL_BASE}/mp3/#{ERB::Util.u(mp3_file.basename.to_s)}"
       item.enclosure.length = mp3_file.size
       item.enclosure.type = 'audio/mpeg'
 
