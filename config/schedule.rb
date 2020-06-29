@@ -79,6 +79,10 @@ every(:wednesday, at: '22:10') { send rake_method, 'oreore:podcast' }
 every(:friday, at: '22:05') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:friday, at: '22:10') { send rake_method, 'oreore:podcast' }
 
+# weekend
+every(:saturday, at: '15:00') { send rake_method, 'oreore:import_from_ripdiko' }
+every(:saturday, at: '15:05') { send rake_method, 'oreore:podcast' }
+
 # odoriba
 every(:sunday, at: '04:00') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:sunday, at: '04:05') { send rake_method, 'oreore:podcast' }
