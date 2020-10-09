@@ -156,6 +156,7 @@ namespace :oreore do
                when /Laughter Night/; 'warai954'
                when /踊り場/; 'odoriba'
                when /週末ノオト/; 'weekend'
+               when /宮藤さんに言っても/; 'gc'
                else 'unknown'
                end
         started_at = mp3_file.basename('.mp3').to_s.split('-').first

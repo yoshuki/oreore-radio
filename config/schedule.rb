@@ -75,6 +75,10 @@ every('10 3 * * 2-7') { send rake_method, 'oreore:podcast' }
 every(:wednesday, at: '22:05') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:wednesday, at: '22:10') { send rake_method, 'oreore:podcast' }
 
+# gc
+every(:friday, at: '21:35') { send rake_method, 'oreore:import_from_ripdiko' }
+every(:friday, at: '21:40') { send rake_method, 'oreore:podcast' }
+
 # edo
 every(:friday, at: '22:05') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:friday, at: '22:10') { send rake_method, 'oreore:podcast' }
