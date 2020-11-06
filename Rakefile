@@ -26,7 +26,7 @@ end
 
 def embed_cover_image(mp3_file)
   image_file = "#{DIR_IMAGES}/#{File.basename(mp3_file, '.mp3').split('_').first}.jpg"
-  image_file = "#{DIR_IMAGES}/logo_tbsradio.jpg" unless File.exist?(image_file)
+  image_file = "#{DIR_IMAGES}/logo_radio.jpg" unless File.exist?(image_file)
 
   TagLib::MPEG::File.open(mp3_file) do |file|
     tag = file.id3v2_tag
@@ -91,7 +91,7 @@ namespace :oreore do
     Net::SSH.start(SSH_HOST, SSH_USER) do |ssh|
       ssh.exec!("mkdir -p #{SSH_PATH}/mp3/")
     end
-    Net::SCP.upload!(SSH_HOST, SSH_USER, "#{DIR_IMAGES}/logo_tbsradio.jpg", "#{SSH_PATH}/")
+    Net::SCP.upload!(SSH_HOST, SSH_USER, "#{DIR_IMAGES}/logo_radio.jpg", "#{SSH_PATH}/")
   end
 
   desc 'Update podcast.'
