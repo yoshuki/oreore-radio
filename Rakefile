@@ -46,18 +46,18 @@ end
 
 def create_podcast_rss
   RSS::Maker.make('2.0') {|maker|
-    maker.channel.title = 'オレオレTBSラジオ'
+    maker.channel.title = 'オレオレラジオ'
     maker.channel.link = "#{URL_BASE}/"
     maker.channel.language = 'ja'
-    maker.channel.description = 'オレオレTBSラジオポッドキャストです。'
-    maker.channel.itunes_subtitle = 'TBS RADIO 954kHz ～聞けば、見えてくる～'
+    maker.channel.description = 'オレオレラジオポッドキャストです。'
+    maker.channel.itunes_subtitle = 'いやぁ、ラジオって本当にいいもんですね。'
     maker.channel.itunes_author = 'オレオレ'
-    maker.channel.itunes_summary = 'オレオレTBSラジオポッドキャストです。'
+    maker.channel.itunes_summary = 'オレオレラジオポッドキャストです。'
 
     maker.items.do_sort = true
 
-    maker.image.title = 'TBS RADIO 954kHz'
-    maker.image.url = "#{URL_BASE}/logo_tbsradio.jpg"
+    maker.image.title = 'RADIO'
+    maker.image.url = "#{URL_BASE}/logo_radio.jpg"
 
     files_sorted_by_mtime("#{DIR_RADIO}/*.mp3").each do |mp3_file|
       mp3_file = Pathname.new(mp3_file)
@@ -157,6 +157,8 @@ namespace :oreore do
                when /踊り場/; 'odoriba'
                when /週末ノオト/; 'weekend'
                when /宮藤さんに言っても/; 'gc'
+               when /佐久間宣行の/; 'sakuma'
+               when /ON THE PLANET/; 'otp'
                else 'unknown'
                end
         started_at = mp3_file.basename('.mp3').to_s.split('-').first
