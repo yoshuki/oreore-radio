@@ -71,9 +71,17 @@ every('10 1 * * 2-6') { send rake_method, 'oreore:podcast' }
 every('05 3 * * 2-7') { send rake_method, 'oreore:import_from_ripdiko' }
 every('10 3 * * 2-7') { send rake_method, 'oreore:podcast' }
 
+# otp
+every(:wednesday, at: '04:05') { send rake_method, 'oreore:import_from_ripdiko' }
+every(:wednesday, at: '04:10') { send rake_method, 'oreore:podcast' }
+
 # suppin
 every(:wednesday, at: '22:05') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:wednesday, at: '22:10') { send rake_method, 'oreore:podcast' }
+
+# sakuma
+every(:thursday, at: '04:35') { send rake_method, 'oreore:import_from_ripdiko' }
+every(:thursday, at: '04:40') { send rake_method, 'oreore:podcast' }
 
 # gc
 every(:friday, at: '21:35') { send rake_method, 'oreore:import_from_ripdiko' }
