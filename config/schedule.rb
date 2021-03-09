@@ -35,6 +35,26 @@ def rake_method
   File.exist?(DIR_RBENV_BIN) ? :rbenv_rake : :be_rake
 end
 
+# tokyopod
+every(:sunday, at: '03:00') { send rake_method, 'oreore:import_from_ripdiko' }
+every(:sunday, at: '03:05') { send rake_method, 'oreore:podcast' }
+
+# odoriba
+every(:sunday, at: '04:00') { send rake_method, 'oreore:import_from_ripdiko' }
+every(:sunday, at: '04:05') { send rake_method, 'oreore:podcast' }
+
+# nichiten
+every(:sunday, at: '12:00') { send rake_method, 'oreore:import_from_ripdiko' }
+every(:sunday, at: '12:05') { send rake_method, 'oreore:podcast' }
+
+# nichiyou
+#every(:sunday, at: '17:05') { send rake_method, 'oreore:import_from_ripdiko' }
+#every(:sunday, at: '17:10') { send rake_method, 'oreore:podcast' }
+
+# yose / world
+every(:sunday, at: '21:05') { send rake_method, 'oreore:import_from_ripdiko' }
+every(:sunday, at: '21:10') { send rake_method, 'oreore:podcast' }
+
 # ij
 #every('05 11 * * 1-4') { send rake_method, 'oreore:import_from_ripdiko' }
 #every('10 11 * * 1-4') { send rake_method, 'oreore:podcast' }
@@ -46,10 +66,6 @@ end
 # tama954
 #every('35 15 * * 1-5') { send rake_method, 'oreore:import_from_ripdiko' }
 #every('40 15 * * 1-5') { send rake_method, 'oreore:podcast' }
-
-# nichiyou
-#every(:sunday, at: '17:05') { send rake_method, 'oreore:import_from_ripdiko' }
-#every(:sunday, at: '17:10') { send rake_method, 'oreore:podcast' }
 
 # kamataku
 every(:monday, at: '22:05') { send rake_method, 'oreore:import_from_ripdiko' }
@@ -86,15 +102,3 @@ every(:friday, at: '22:10') { send rake_method, 'oreore:podcast' }
 # weekend
 #every(:saturday, at: '15:00') { send rake_method, 'oreore:import_from_ripdiko' }
 #every(:saturday, at: '15:05') { send rake_method, 'oreore:podcast' }
-
-# odoriba
-every(:sunday, at: '04:00') { send rake_method, 'oreore:import_from_ripdiko' }
-every(:sunday, at: '04:05') { send rake_method, 'oreore:podcast' }
-
-# nichiten
-every(:sunday, at: '12:00') { send rake_method, 'oreore:import_from_ripdiko' }
-every(:sunday, at: '12:05') { send rake_method, 'oreore:podcast' }
-
-# yose / world
-every(:sunday, at: '21:05') { send rake_method, 'oreore:import_from_ripdiko' }
-every(:sunday, at: '21:10') { send rake_method, 'oreore:podcast' }
