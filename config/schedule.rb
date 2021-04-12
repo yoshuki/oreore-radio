@@ -56,8 +56,8 @@ every('05 1 * * 2-6') { send rake_method, 'oreore:import_from_ripdiko' }
 every('10 1 * * 2-6') { send rake_method, 'oreore:podcast' }
 
 # junk
-every('05 3 * * 2-7') { send rake_method, 'oreore:import_from_ripdiko' }
-every('10 3 * * 2-7') { send rake_method, 'oreore:podcast' }
+every('05 3 * * 2-6') { send rake_method, 'oreore:import_from_ripdiko' }
+every('10 3 * * 2-6') { send rake_method, 'oreore:podcast' }
 
 # otp
 every(:wednesday, at: '04:05') { send rake_method, 'oreore:import_from_ripdiko' }
@@ -82,6 +82,10 @@ every(:friday, at: '22:10') { send rake_method, 'oreore:podcast' }
 # weekend
 #every(:saturday, at: '15:00') { send rake_method, 'oreore:import_from_ripdiko' }
 #every(:saturday, at: '15:05') { send rake_method, 'oreore:podcast' }
+
+# elekata
+every(:sunday, at: '02:00') { send rake_method, 'oreore:import_from_ripdiko' }
+every(:sunday, at: '02:05') { send rake_method, 'oreore:podcast' }
 
 # tokyopod
 every(:sunday, at: '03:00') { send rake_method, 'oreore:import_from_ripdiko' }
