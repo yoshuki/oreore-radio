@@ -84,12 +84,12 @@ every(:friday, at: '22:10') { send rake_method, 'oreore:podcast' }
 #every(:saturday, at: '15:05') { send rake_method, 'oreore:podcast' }
 
 # elekata
-every(:sunday, at: '02:00') { send rake_method, 'oreore:import_from_ripdiko' }
-every(:sunday, at: '02:05') { send rake_method, 'oreore:podcast' }
+every(:sunday, at: '02:05') { send rake_method, 'oreore:import_from_ripdiko' }
+every(:sunday, at: '02:10') { send rake_method, 'oreore:podcast' }
 
 # tokyopod
-every(:sunday, at: '03:00') { send rake_method, 'oreore:import_from_ripdiko' }
-every(:sunday, at: '03:05') { send rake_method, 'oreore:podcast' }
+every(:sunday, at: '03:05') { send rake_method, 'oreore:import_from_ripdiko' }
+every(:sunday, at: '03:10') { send rake_method, 'oreore:podcast' }
 
 # nichiten
 every(:sunday, at: '12:00') { send rake_method, 'oreore:import_from_ripdiko' }
