@@ -106,7 +106,7 @@ namespace :oreore do
     # Clean expired mp3
     Net::SSH.start(SSH_HOST, SSH_USER) do |ssh|
       files_sorted_by_mtime("#{DIR_RADIO}/*.mp3").each do |mp3_file|
-        limit = (Time.now - (86400*93)).strftime('%Y%m%d')
+        limit = (Time.now - (86400*140)).strftime('%Y%m%d')
         if File.basename(mp3_file, '.mp3').split('_').last < limit
           File.delete(mp3_file)
           ssh.exec!("rm -f #{SSH_PATH}/mp3/#{File.basename(mp3_file)}")
