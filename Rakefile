@@ -1,9 +1,9 @@
 require 'erb'
 require 'fileutils'
-require 'rss'
 require 'yaml'
 
 require 'net/scp'
+require 'rss'
 require 'taglib'
 
 DIR_BASE      = File.expand_path(File.dirname(__FILE__))
