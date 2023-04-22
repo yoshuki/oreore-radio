@@ -39,17 +39,17 @@ end
 every(:sunday, at: '06:05') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:sunday, at: '06:10') { send rake_method, 'oreore:podcast' }
 
+# kanau
+every(:sunday, at: '08:05') { send rake_method, 'oreore:import_from_ripdiko' }
+every(:sunday, at: '08:10') { send rake_method, 'oreore:podcast' }
+
 # nichiten
 every(:sunday, at: '12:00') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:sunday, at: '12:05') { send rake_method, 'oreore:podcast' }
 
-# nichiyou
-#every(:sunday, at: '17:05') { send rake_method, 'oreore:import_from_ripdiko' }
-#every(:sunday, at: '17:10') { send rake_method, 'oreore:podcast' }
-
-# yose
-every(:sunday, at: '21:00') { send rake_method, 'oreore:import_from_ripdiko' }
-every(:sunday, at: '21:05') { send rake_method, 'oreore:podcast' }
+# gakuyazomeki
+every(:sunday, at: '14:00') { send rake_method, 'oreore:import_from_ripdiko' }
+every(:sunday, at: '14:05') { send rake_method, 'oreore:podcast' }
 
 # gc
 every(:friday, at: '21:35') { send rake_method, 'oreore:import_from_ripdiko' }

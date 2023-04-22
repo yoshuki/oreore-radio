@@ -162,6 +162,8 @@ namespace :oreore do
                when /ケツビ！/; 'elekata'
                when /これが宮治でございます/; 'miyaji905'
                when /ここがオズワルドさんち！/; 'ozu'
+               when /楽屋ぞめき/; 'gakuyazomeki'
+               when /夢は口に出せば叶う!!早番/; 'kanau'
                else 'unknown'
                end
         started_at = mp3_file.basename('.mp3').to_s.split('-').first
