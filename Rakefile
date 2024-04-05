@@ -165,6 +165,7 @@ namespace :oreore do
                when /楽屋ぞめき/; 'gakuyazomeki'
                when /夢は口に出せば叶う!!早番/; 'kanau'
                when /百年ラヂオ/; 'hyakunen'
+               when /おしんり研究所/; 'oshinri'
                when /ザブトン５/; 'miyaji'
                when /スタンド・バイ・見取り図/; 'stm'
                else 'unknown'
