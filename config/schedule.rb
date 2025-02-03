@@ -39,10 +39,6 @@ end
 every(:sunday, at: '06:05') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:sunday, at: '06:10') { send rake_method, 'oreore:podcast' }
 
-# hyakunen
-every(:sunday, at: '12:00') { send rake_method, 'oreore:import_from_ripdiko' }
-every(:sunday, at: '12:05') { send rake_method, 'oreore:podcast' }
-
 # gakuyazomeki
 every(:sunday, at: '14:00') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:sunday, at: '14:05') { send rake_method, 'oreore:podcast' }
