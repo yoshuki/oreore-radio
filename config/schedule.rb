@@ -84,10 +84,6 @@ every(:sunday, at: '02:10') { send rake_method, 'oreore:podcast' }
 every(:sunday, at: '03:05') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:sunday, at: '03:10') { send rake_method, 'oreore:podcast' }
 
-# ang
-every(:tuesday, at: '03:05') { send rake_method, 'oreore:import_from_ripdiko' }
-every(:tuesday, at: '03:10') { send rake_method, 'oreore:podcast' }
-
 # sakuma
 every(:thursday, at: '04:35') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:thursday, at: '04:40') { send rake_method, 'oreore:podcast' }
