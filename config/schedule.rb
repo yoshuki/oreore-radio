@@ -56,16 +56,16 @@ every(:friday, at: '22:05') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:friday, at: '22:10') { send rake_method, 'oreore:podcast' }
 
 # kamataku, oshinri, suppin, minamikawa
-every('23 35 * * 1-4') { send rake_method, 'oreore:import_from_ripdiko' }
-every('23 40 * * 1-4') { send rake_method, 'oreore:podcast' }
+every('35 23 * * 1-4') { send rake_method, 'oreore:import_from_ripdiko' }
+every('40 23 * * 1-4') { send rake_method, 'oreore:podcast' }
 
 # midnight
-every('05 1 * * 2-5') { send rake_method, 'oreore:import_from_ripdiko' }
-every('10 1 * * 2-5') { send rake_method, 'oreore:podcast' }
+every('05 01 * * 2-5') { send rake_method, 'oreore:import_from_ripdiko' }
+every('10 01 * * 2-5') { send rake_method, 'oreore:podcast' }
 
 # junk
-every('05 3 * * 2-6') { send rake_method, 'oreore:import_from_ripdiko' }
-every('10 3 * * 2-6') { send rake_method, 'oreore:podcast' }
+every('05 03 * * 2-6') { send rake_method, 'oreore:import_from_ripdiko' }
+every('10 03 * * 2-6') { send rake_method, 'oreore:podcast' }
 
 # tokyopod
 every(:sunday, at: '02:05') { send rake_method, 'oreore:import_from_ripdiko' }
