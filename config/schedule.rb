@@ -59,7 +59,7 @@ every(:friday, at: '22:10') { send rake_method, 'oreore:podcast' }
 every('35 23 * * 1-4') { send rake_method, 'oreore:import_from_ripdiko' }
 every('40 23 * * 1-4') { send rake_method, 'oreore:podcast' }
 
-# midnight
+# odoriba, dcg, stm, ht
 every('05 01 * * 2-5') { send rake_method, 'oreore:import_from_ripdiko' }
 every('10 01 * * 2-5') { send rake_method, 'oreore:podcast' }
 
