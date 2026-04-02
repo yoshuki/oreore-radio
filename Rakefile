@@ -172,6 +172,7 @@ namespace :oreore do
                when /かんらからから/; 'kanra'
                when /秘密諜報員/; 'minamikawa'
                when /人工知能ちょっと来い！/; 'ai'
+               when /肉の塊/; 'niku'
                else 'unknown'
                end
         started_at = mp3_file.basename('.mp3').to_s.split('-').first
