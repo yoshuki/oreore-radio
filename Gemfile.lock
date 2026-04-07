@@ -4,6 +4,7 @@ GEM
     bcrypt_pbkdf (1.1.2)
     chronic (0.10.2)
     ed25519 (1.4.0)
+    logger (1.7.0)
     net-scp (4.1.0)
       net-ssh (>= 2.6.5, < 8.0.0)
     net-ssh (7.3.2)
@@ -24,6 +25,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt_pbkdf
   ed25519
+  logger
   net-scp
   rake
   rss

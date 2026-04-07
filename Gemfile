@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 ruby file: '.ruby-version'
 
+gem 'logger'
 gem 'net-scp'
 gem 'rake'
 gem 'rss'
