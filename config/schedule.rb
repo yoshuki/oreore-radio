@@ -39,6 +39,10 @@ end
 every(:sunday, at: '06:05') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:sunday, at: '06:10') { send rake_method, 'oreore:podcast' }
 
+# asahamo
+every(:saturday, at: '10:05') { send rake_method, 'oreore:import_from_ripdiko' }
+every(:saturday, at: '10:10') { send rake_method, 'oreore:podcast' }
+
 # gakuyazomeki
 every(:sunday, at: '14:00') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:sunday, at: '14:05') { send rake_method, 'oreore:podcast' }
@@ -51,7 +55,7 @@ every(:friday, at: '21:40') { send rake_method, 'oreore:podcast' }
 every(:friday, at: '22:05') { send rake_method, 'oreore:import_from_ripdiko' }
 every(:friday, at: '22:10') { send rake_method, 'oreore:podcast' }
 
-# kamataku, oshinri, suppin, minamikawa
+# kamataku, oshinri, suppin, niku
 every('35 23 * * 1-4') { send rake_method, 'oreore:import_from_ripdiko' }
 every('40 23 * * 1-4') { send rake_method, 'oreore:podcast' }
 
