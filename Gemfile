@@ -7,7 +7,7 @@ ruby file: '.ruby-version'
 gem 'net-scp'
 gem 'rake'
 gem 'rss'
-gem 'taglib-ruby', '~> 1.1.3'
+gem 'taglib-ruby', '~> 2.0.0'
 gem 'whenever', require: false
 
 gem 'ed25519'
