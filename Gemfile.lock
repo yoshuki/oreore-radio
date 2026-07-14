@@ -7,10 +7,10 @@ GEM
     logger (1.7.0)
     net-scp (4.1.0)
       net-ssh (>= 2.6.5, < 8.0.0)
-    net-ssh (7.3.2)
-    rake (13.3.1)
+    net-ssh (7.3.3)
+    rake (13.4.2)
     rexml (3.4.4)
-    rss (0.3.2)
+    rss (0.3.3)
       rexml
     taglib-ruby (2.0.0)
     whenever (1.1.2)
@@ -33,7 +33,7 @@ DEPENDENCIES
   whenever
 
 RUBY VERSION
-  ruby 4.0.2
+  ruby 4.0.6
 
 BUNDLED WITH
-  4.0.6
+  4.0.16
